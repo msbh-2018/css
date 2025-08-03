@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Selectors</title>
+	<style type="text/css">
+		.desc h1 ~ p
+		{
+			color: red;
+		}
+
+		h1:hover
+		{
+			color: purple;
+		}
+
+		.desc h1:first-child
+		{
+			color:red;
+		}
+
+		.desc h1:last-child
+		{
+			color:pink;
+		}
+
+		.desc h1:nth-child(3)
+		{
+			color: purple;
+		}
+
+		.desc h1:nth-child(2)
+		{
+			color: purple;
+		}
+
+		
+	</style>
+</head>
+<body>
+	<div class="desc">
+		<h1>hello 1</h1>
+		<h1>hello 2</h1>
+		<h1>hello 3</h1>
+		<h1>hello 4</h1>
+		<h1>hello 5</h1>
+	</div>
+</body>
+</html>

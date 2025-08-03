@@ -1,0 +1,34 @@
+1. <h1></h1>-----------Largest Heading     
+   <h6></h6>-----------Smallest Heading
+   Attribute:- align=left|right|center
+
+2. <p></p>-------------Paragraph tag
+   Attribute:- align=left |right |center | Justify
+
+3. <a></a>-------------Anchor Tag to create links
+   Attribute:- href=htmlfilename | url
+               target=_self | _blank      
+
+4. <img>---------------Image tag           
+   Attribute:- height, width, alt
+
+5. <marquee></marquee>-----To move text on screen
+   Attribute-: direction=left| right | up | down
+   			   behavior=scroll| slide | alternate
+   			   scrollamount=10px (control the speed of moving element)
+
+6. Listing Tags
+   <ol></ol>-------ordered list
+   Attribute:- type=1 | a | A | I | i
+
+   <ul></ul>-------unordered list
+   Attribute:- type=disc | square | circle 
+
+   <li></li>-------listing tag
+
+7. Style Attributes:
+   Related to color--- color:red | background-color:pink
+   Related to font---- font-family: serif | font-size:20px
+   inline element----- float: left | right
+  
+
