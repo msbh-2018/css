@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Responsive Navbar</title>
+  <style type="text/css">
+  *
+  {
+    margin: 0;
+    padding:0;
+    box-sizing: border-box;
+  }
+  .navbar
+  {
+  	display: flex;
+  	padding:10px;
+  	justify-content: space-around;
+  	flex-wrap: wrap;
+  }
+
+  .nav-links
+  {
+  	display: flex;
+  	list-style-type: none;
+  	gap:20px;
+  	flex-wrap: wrap;
+
+  }
+
+  .nav-right
+  {
+  	display: flex;
+  	gap:20px;
+  }
+
+  .nav-center
+  {
+  	position: relative;
+  	margin-top:10px;
+  	margin-bottom: 10px;
+  }
+  .nav-center i
+  {
+  	
+  	position: absolute;
+  	right:5px;
+  	top:1px;
+  	padding: 3px;
+
+  }
+
+  .search-bar
+  {
+  	height: 25px;
+  	width: 100%;
+  	border-radius: 20px;
+  }
+
+  @media (max-width: 768px)
+  {
+  	.navbar
+  	{
+  		flex-direction: column;
+
+  	}
+
+  	.nav-links
+  	{
+  		justify-content: center;
+  	}
+
+  	.nav-right
+  	{
+  		justify-content: center;
+  	}
+  }
+
+  @media (max-width: 313px)
+  {
+  	.nav-links
+  	{
+  		flex-direction: column;
+  		/*justify-content: center !important;*/
+  	}
+
+  	.nav-links li
+  	{
+  		text-align: center;
+  	}
+
+  }
+
+
+  </style>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+
+  <nav class="navbar">
+    <div class="nav-left">
+      <ul class="nav-links">
+        <li><a href="#">Home</a></li>
+        <li><a href="#">About</a></li>
+        <li><a href="#">Services</a></li>
+        <li><a href="#">Contact</a></li>
+      </ul>
+    </div>
+
+    <div class="nav-center">
+      <input type="text"  class="search-bar" />
+      <i class="fas fa-search"></i>
+    </div>
+
+    <div class="nav-right">
+      <a href="#"><i class="fab fa-facebook-f"></i></a>
+      <a href="#"><i class="fab fa-twitter"></i></a>
+      <a href="#"><i class="fab fa-instagram"></i></a>
+    </div>
+  </nav>
+
+</body>
+</html>
