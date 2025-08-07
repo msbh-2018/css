@@ -14,9 +14,10 @@
   .navbar
   {
   	display: flex;
-  	padding:10px;
+  	padding:15px;
   	justify-content: space-around;
   	flex-wrap: wrap;
+  	background-color: #e84545;
   }
 
   .nav-links
@@ -32,13 +33,20 @@
   {
   	display: flex;
   	gap:20px;
+  	align-self: center;
+  	width: 10%;
+  }
+
+  .nav-right a
+  {
+  	color:white;
   }
 
   .nav-center
   {
   	position: relative;
-  	margin-top:10px;
-  	margin-bottom: 10px;
+  	align-self: center;
+  	width: 40%;
   }
   .nav-center i
   {
@@ -50,11 +58,27 @@
 
   }
 
+  .nav-links a:hover
+  {
+  	background-color: white;
+  	color:#e84545;
+  }
+
+  .nav-links a
+  {
+  	color: white;
+  	text-decoration: none;
+  	font-size: 18px;
+  	display: block;
+  	padding:10px;
+  }
+
   .search-bar
   {
   	height: 25px;
   	width: 100%;
   	border-radius: 20px;
+  	border:1px solid #e8e8e8;
   }
 
   @media (max-width: 768px)
@@ -72,6 +96,7 @@
 
   	.nav-right
   	{
+  		margin-top: 10px;
   		justify-content: center;
   	}
   }
@@ -91,12 +116,12 @@
 
   }
 
-
+  
   </style>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body>
-
+<header>
   <nav class="navbar">
     <div class="nav-left">
       <ul class="nav-links">
@@ -118,6 +143,9 @@
       <a href="#"><i class="fab fa-instagram"></i></a>
     </div>
   </nav>
+</header>
+
+
 
 </body>
 </html>

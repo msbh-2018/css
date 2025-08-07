@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Responsive Navbar</title>
+  <style type="text/css">
+  *
+  {
+    margin: 0;
+    padding:0;
+    box-sizing: border-box;
+  }
+  .container
+  {
+    height: 500px;
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+  }
+  .box
+  {
+  	height: 500px;
+  	width: 32%;
+  	border: 1px solid;
+  	perspective: 1000px;
+  	overflow: hidden;
+  }
+  .box img
+  {
+  	height: 500px;
+  	width: 100%;
+  	object-fit: cover;
+  	transition: transform 2s ease;
+  }
+
+  .box:hover img
+  {
+  	transform: scale(1.2);
+  }
+
+  @media (max-width: 990px)
+  {
+  	.container
+  	{
+  		flex-direction: column;
+  	}
+
+  	.box
+  	{
+  		width: 100%;
+  		margin-bottom: 10px;
+  		overflow: static;
+  	}
+
+
+  }
+
+  
+  </style>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+  <div class="container">
+    <div class="box">
+      <img src="images/hills.jpg">
+    </div>
+
+    <div class="box">
+      <img src="images/hills.jpg">
+    </div>
+
+    <div class="box">
+      <img src="images/hills.jpg">
+    </div>
+
+  </div>
+
+
+</body>
+</html>
