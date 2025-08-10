@@ -1,0 +1,203 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>WanderNest — Discover Your Next Adventure</title>
+  <meta name="description" content="A simple responsive tourism website template — hero, destinations, gallery, packages, and contact." />
+  <style>
+    :root{
+      --bg:#f7fbff;
+      --card:#ffffff;
+      --accent:#0ea5a4;
+      --accent-2:#0b7285;
+      --muted:#6b7280;
+      --radius:14px;
+      --max-width:1100px;
+      --shadow: 0 6px 22px rgba(12,34,56,0.08);
+      --glass: linear-gradient(180deg, rgba(255,255,255,0.6), rgba(255,255,255,0.35));
+    }
+    *{box-sizing:border-box}
+    body{margin:0;font-family:Inter, system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial; background:var(--bg); color:#042028; -webkit-font-smoothing:antialiased;}
+    a{color:inherit;text-decoration:none}
+    .container{max-width:var(--max-width);margin:0 auto;padding:28px}
+
+    /* Header / Nav */
+    .topbar{background:var(--card);backdrop-filter: blur(6px);border-radius:18px;padding:14px 18px;box-shadow:var(--shadow);margin:18px}
+    .brand{display:flex;align-items:center;gap:12px;font-weight:700;font-size:18px}
+    .brand .logo{width:44px;height:44px;border-radius:10px;background:linear-gradient(135deg,var(--accent),var(--accent-2));display:flex;align-items:center;justify-content:center;color:white;font-weight:700}
+    nav{display:flex;align-items:center;gap:18px;margin-left:auto}
+    .nav-links{display:flex;gap:16px;align-items:center}
+    .btn{padding:8px 14px;border-radius:10px;background:var(--accent);color:white;font-weight:600}
+
+    /* Responsive hamburger (checkbox hack) */
+    .menu-toggle{display:none}
+    .hamburger{display:none;cursor:pointer;padding:8px}
+    .hamburger div{width:22px;height:2px;background:#042028;margin:4px 0;border-radius:2px}
+
+    /* Hero */
+    .hero{display:grid;grid-template-columns:1fr 420px;gap:28px;align-items:center;margin:22px}
+    .hero-card{background:var(--card);border-radius:18px;padding:28px;box-shadow:var(--shadow)}
+    .hero h1{font-size:34px;margin:0 0 10px}
+    .hero p{color:var(--muted);margin:0 0 18px}
+    .search{display:flex;gap:8px}
+    .search input{flex:1;padding:12px;border-radius:10px;border:1px solid #e6eef0}
+    .search button{padding:12px 14px;border-radius:10px;border:0;background:var(--accent);color:white}
+
+    .hero-side{border-radius:18px;overflow:hidden;background-image:url('https://images.unsplash.com/photo-1501785888041-af3ef285b470?q=80&w=1200&auto=format&fit=crop&ixlib=rb-4.0.3&s=5b2b6f0b0b0f1b7a8b7c3df0c3e6b7c9');background-size:cover;background-position:center;min-height:320px;box-shadow:var(--shadow)}
+    .hero-side .overlay{padding:18px;color:white;background:linear-gradient(180deg, rgba(3,7,18,0.05), rgba(3,7,18,0.35));height:100%;display:flex;flex-direction:column;justify-content:flex-end}
+
+    /* Section styles */
+    section{margin:22px}
+    .section-title{display:flex;align-items:end;justify-content:space-between;margin-bottom:12px}
+    .section-title h2{margin:0}
+    .cards{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+    .card{background:var(--card);border-radius:14px;overflow:hidden;box-shadow:var(--shadow);}
+    .card img{width:100%;height:160px;object-fit:cover;display:block}
+    .card .card-body{padding:12px}
+    .muted{color:var(--muted);font-size:14px}
+
+    /* Gallery */
+    .gallery{display:grid;grid-template-columns:repeat(4,1fr);gap:8px}
+    .gallery img{width:100%;height:120px;object-fit:cover;border-radius:8px}
+
+    /* Packages */
+    .packages{display:grid;grid-template-columns:repeat(2,1fr);gap:14px}
+    .package{display:flex;gap:12px;align-items:center;padding:12px;border-radius:12px;border:1px solid #eef6f7;background:linear-gradient(180deg,#fff, #fbffff)}
+    .price{font-weight:800;color:var(--accent-2)}
+
+    /* CTA */
+    .cta{background:linear-gradient(90deg,rgba(14,165,164,0.12),rgba(11,114,133,0.08));border-radius:18px;padding:18px;display:flex;justify-content:space-between;align-items:center}
+
+    /* Footer */
+    footer{margin:22px;padding:20px;border-radius:12px;background:var(--card);box-shadow:var(--shadow)}
+
+    /* Small screens */
+    @media (max-width:980px){
+      .hero{grid-template-columns:1fr;}
+      .cards{grid-template-columns:repeat(2,1fr)}
+      .gallery{grid-template-columns:repeat(3,1fr)}
+      .hero-side{min-height:240px}
+      .hamburger{display:block}
+      nav{position:relative}
+      .nav-links{gap:8px}
+    }
+    @media (max-width:720px){
+      .container{padding:16px}
+      .topbar{margin:12px;padding:12px}
+      .brand{font-size:16px}
+      .cards{grid-template-columns:1fr}
+      .gallery{grid-template-columns:repeat(2,1fr)}
+      .packages{grid-template-columns:1fr}
+      .menu-toggle{display:block}
+      /* Checkbox menu styles */
+      input.menu-toggle{display:none}
+      .nav-mobile{display:none}
+      input.menu-toggle:checked + .nav-mobile{display:flex;flex-direction:column;gap:10px;padding:12px;margin-top:10px;background:transparent}
+    }
+
+    /* small helper */
+    .chip{display:inline-block;padding:6px 10px;border-radius:999px;border:1px solid rgba(6,38,41,0.06);font-size:13px}
+  </style>
+</head>
+<body>
+  <div class="container">
+    <header class="topbar" role="banner">
+      <div style="display:flex;align-items:center;gap:12px">
+        <div class="brand">
+          <div class="logo">WN</div>
+          WanderNest
+        </div>
+        <div style="margin-left:auto;display:flex;align-items:center;gap:12px">
+          <input id="menu" class="menu-toggle" type="checkbox" />
+          <label for="menu" class="hamburger" aria-hidden="true">
+            <div></div><div></div><div></div>
+          </label>
+        </div>
+      </div>
+
+      <nav aria-label="Main navigation" style="margin-top:10px;display:flex;align-items:center">
+        <div class="nav-links" style="flex:1">
+          <a href="#destinations" class="muted">Destinations</a>
+          <a href="#packages" class="muted">Packages</a>
+          <a href="#gallery" class="muted">Gallery</a>
+          <a href="#contact" class="muted">Contact</a>
+        </div>
+        <div style="display:flex;gap:8px;align-items:center">
+          <a class="chip" href="#">Sign in</a>
+          <a class="btn" href="#packages">Book Trip</a>
+        </div>
+      </nav>
+
+      <!-- mobile menu -->
+      <div class="nav-mobile" style="margin-top:8px">
+        <!-- This becomes visible on small screens when checkbox is checked -->
+        <a href="#destinations" class="muted">Destinations</a>
+        <a href="#packages" class="muted">Packages</a>
+        <a href="#gallery" class="muted">Gallery</a>
+        <a href="#contact" class="muted">Contact</a>
+      </div>
+    </header>
+
+    <main>
+      <section class="hero">
+        <div class="hero-card">
+          <h1>Find your next escape.</h1>
+          <p>Curated trips, local experiences, and flexible packages — all in one place. Explore beaches, mountains, cities, and rural gems.</p>
+          <form class="search" role="search" onsubmit="return false">
+            <input aria-label="Search destination" placeholder="Search city, country or theme (e.g. 'beach')" />
+            <button type="submit">Search</button>
+          </form>
+
+          <div style="display:flex;gap:10px;margin-top:16px;flex-wrap:wrap">
+            <div class="chip">Family</div>
+            <div class="chip">Adventure</div>
+            <div class="chip">Budget</div>
+            <div class="chip">Luxury</div>
+          </div>
+
+          <div style="margin-top:18px;display:flex;gap:12px;align-items:center">
+            <div style="display:flex;gap:8px;align-items:center">
+              <img src="https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?q=80&w=80&auto=format&fit=crop&ixlib=rb-4.0.3&s=1b2d6f" alt="guide" style="width:46px;height:46px;border-radius:10px;object-fit:cover;"/>
+              <div>
+                <div style="font-weight:700">Local Guides</div>
+                <div class="muted" style="font-size:13px">Trusted & verified</div>
+              </div>
+            </div>
+
+            <div style="margin-left:auto">
+              <small class="muted">Starting from</small>
+              <div class="price">$129</div>
+            </div>
+          </div>
+        </div>
+
+        <aside class="hero-side" aria-hidden="true">
+          <div class="overlay">
+            <div style="display:flex;align-items:center;justify-content:space-between;color:white;margin-bottom:8px">
+              <div style="font-weight:700">Explore Himalaya</div>
+              <div class="chip" style="background:rgba(255,255,255,0.12);border:1px solid rgba(255,255,255,0.12);color:white">Featured</div>
+            </div>
+            <div style="font-size:13px;opacity:0.95">7 days • Guided trek • Cultural stops</div>
+          </div>
+        </aside>
+      </section>
+
+      <section id="destinations">
+        <div class="section-title">
+          <h2>Popular Destinations</h2>
+          <a class="muted" href="#">View all</a>
+        </div>
+        <div class="cards">
+          <article class="card">
+            <img src="https://images.unsplash.com/photo-1505765059337-6a1f8b3f2b2a?q=80&w=1200&auto=format&fit=crop&ixlib=rb-4.0.3&s=2e7c5" alt="Beach"/>
+            <div class="card-body">
+              <div style="display:flex;justify-content:space-between;align-items:center">
+                <strong>Maldives Escape</strong>
+                <div class="muted">5 days</div>
+              </div>
+              <div class="muted" style="margin-top:8px">White sand beaches, snorkeling & sunset cruises.</div>
+            </div>
+          </article>
+
+          <article class="
